@@ -1,0 +1,125 @@
+﻿@model IEnumerable<FypProject.Models.SalesMasterIdnexVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Sales Detail</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("PointOfSale","Sales")">Add Sales</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-sales">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Invoice Number</th>
+                                        <th>Total Product Quantity</th>
+                                        <th>Total Amount</th>
+                                        <th>Datetime</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>@item.UserName</td>
+                                            <td>
+                                                @item.InvoiceNumber
+                                            </td>
+                                            <td>
+                                                @item.NoOfQuantity
+                                            </td>
+                                            <td>
+                                                @item.TotalAmount
+                                            </td>
+                                            <td>
+                                                @item.Datetime
+                                            </td>
+                                        
+
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon detail" href="javascript:void(0)" data-salesMasterId="@item.SalesMasterId"><i class="fas fa-list"></i>Detail</a>
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit","Sales", new { id= item.SalesMasterId })"><i class="fas fa-edit"></i>Edit</a>
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("PrintInvoice","Sales", new { saleMasterId = item.SalesMasterId })" target="_blank"><i class="fas fa-print"></i>Print</a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+@section Scripts {
+
+    <script>
+
+        $(function () {
+            var tableUsers = $('#table-sales');
+            applyDatatableClass(tableUsers);
+        });
+
+        $('.detail').click(function () {
+            var salesMasterId = $(this).attr("data-salesMasterId");
+            LoadSalesDetail(salesMasterId);
+
+        });
+
+        function LoadSalesDetail(_salesMasterId) {
+            toggleUniversalLoader();
+            var url = '@Url.Action("LoadSalesDetail", "Sales", new { salesMasterId = "__salesMasterId__" })';
+            url = url.replace("__salesMasterId__", _salesMasterId);
+
+            var bodyCreate = $('#myPV');
+
+            $(bodyCreate).load(url, "",
+               function (responseText, textStatus, XMLHttpRequest) {
+               });
+        }
+
+
+    </script>
+
+}
+
+
+

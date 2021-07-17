@@ -1,0 +1,232 @@
+﻿@model FypProject.Models.DashBoardVM
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+
+            <section class="section">
+                <div class="row ">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15">Total Users</h5>
+                                                @*<h2 class="mb-3 font-18">258</h2>*@
+                                                <h2 class="mb-3 font-18">@Model.TotalUsers</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="~/FrontEnd/Theme/img/banner/1.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15">Total Franchise</h5>
+                                                @*<h2 class="mb-3 font-18">1,287</h2>*@
+                                                <h2 class="mb-3 font-18">@Model.TotalFranchies</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="~/FrontEnd/Theme/img/banner/2.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Total Product Sale </h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>7 Day Advertise</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</body>
+
+@section Scripts{
+    <script src="~/FrontEnd/Theme/bundles/chartjs/chart.min.js"></script>
+    <script src="~/FrontEnd/Theme/bundles/jquery.sparkline.min.js"></script>
+    <script src="~/FrontEnd/Theme/bundles/apexcharts/apexcharts.min.js"></script>
+    <script type="text/javascript">
+
+        /* chart shadow */
+        var draw = Chart.controllers.line.prototype.draw;
+        Chart.controllers.lineShadow = Chart.controllers.line.extend({
+            draw: function () {
+                draw.apply(this, arguments);
+                var ctx = this.chart.chart.ctx;
+                var _stroke = ctx.stroke;
+                ctx.stroke = function () {
+                    ctx.save();
+                    ctx.shadowColor = '#00000075';
+                    ctx.shadowBlur = 10;
+                    ctx.shadowOffsetX = 8;
+                    ctx.shadowOffsetY = 8;
+                    _stroke.apply(this, arguments)
+                    ctx.restore();
+                }
+            }
+        });
+
+
+
+
+        var dataLineChart_ = @Html.Raw(Json.Encode(Model.LineChartMasterVM));
+        // Wave Chart header is Line Chart
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: dataLineChart_,
+            //data: {
+            //    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            //    datasets: [{
+            //        label: 'Statistics',
+            //        data: [460, 458, 330, 502, 430, 610, 488],
+            //        borderWidth: 2,
+            //        backgroundColor: '#6777ef',
+            //        borderColor: '#6777ef',
+            //        borderWidth: 2.5,
+            //        pointBackgroundColor: '#ffffff',
+            //        pointRadius: 4
+            //    }]
+            //},
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: '#f2f2f2',
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 150,
+                            fontColor: "#9aa0ac", // Font Color
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            display: false,
+                            fontColor: "#9aa0ac", // Font Color
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                },
+            }
+        });
+
+
+
+
+        //Bar Chart
+        var dataBarChart_ = @Html.Raw(Json.Encode(Model.BarChartMasterVM));
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+
+            data: dataBarChart_,
+
+            //data: {
+            //    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            //    datasets: [{
+            //        label: 'Statistics',
+            //        data: [460, 458, 330, 502, 430, 610, 488],
+            //        borderWidth: 2,
+            //        backgroundColor: '#6777ef',
+            //        borderColor: '#6777ef',
+            //        borderWidth: 2.5,
+            //        pointBackgroundColor: '#ffffff',
+            //        pointRadius: 4
+            //    }]
+            //},
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: '#f2f2f2',
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 150,
+                            fontColor: "#9aa0ac", // Font Color
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            display: false
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                },
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+}
+

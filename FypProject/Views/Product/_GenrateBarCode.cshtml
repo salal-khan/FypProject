@@ -1,0 +1,85 @@
+﻿@model FypProject.Models.BarCodeGenratVM
+
+<div class="modal fade" id="GenrateBarcodeModal" backdrop="static" role="dialog" aria-labelledby="GenrateBarcodeformModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="GenrateBarcodeformModal">Genrate Bar-Code</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="card-body">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.HiddenFor(m => m.ProductId)
+                                @Html.LabelFor(model => model.Quantity)
+                                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Quantity", @type = "number" } })
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="offset-10">
+                                    <input type="submit" class="btn btn-primary btn-lg btnGenrateBarcode" value="Genrate" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    $(function () {
+        setTimeout(function () { toggleUniversalLoader(); }, 500);
+        $('#GenrateBarcodeModal').modal('toggle');
+    });
+
+
+    $('.btnGenrateBarcode').click(function () {
+        debugger;
+        var Quantity = $('#Quantity').val();
+
+        if (Quantity == null || Quantity == "" || Quantity == undefined || Quantity <= 0) {
+            toastrInfo('Kindly Enter Proper Quantity');
+            return;
+        }
+
+
+        toastrSuccess('Your BarCode Generated in new tab...');
+
+        window.open('@Url.Action("BarcodeGenerate", "Product")?productId=' + '@Model.ProductId' + "~" + Quantity, '_blank');
+        var url = '@Html.Raw(Url.Action("Index", "Product"))';
+
+        setTimeout(function () { window.location.href = url; }, 3000)
+       
+    });
+
+
+    
+
+
+
+</script>

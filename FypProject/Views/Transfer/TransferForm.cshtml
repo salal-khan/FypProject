@@ -1,0 +1,357 @@
+﻿@model FypProject.Models.CreateTransferFormVM
+
+@{
+    ViewBag.Title = "TransferForm";
+}
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Transfer Form</h4>
+        </div>
+        <div class="card-body">
+
+ 
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FranchiseId, new { @class = "control-label" })
+                        <br />
+                        @Html.DropDownListFor(m => m.FranchiseId, Model.FranchiseList as SelectList, "Select Franchise", new { @class = "form-control chosen-select" })
+                        @Html.ValidationMessageFor(m => m.FranchiseId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductId, new { @class = "control-label" })
+                        <br />
+                        @Html.DropDownListFor(m => m.ProductId, Model.ProductList as SelectList, "Select Product", new { @class = "form-control chosen-select" })
+                        @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductQuantity, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.ProductQuantity, new { @class = "form-control", @type = "number" })
+                        @Html.ValidationMessageFor(m => m.ProductQuantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <br />
+                    <input type="submit" class="btn btn-success addTableData" value="Add To Grid" />
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div>
+                        <table id="fillDetails" class="table table-striped table-bordered" style="font-size:12px;">
+                            <thead>
+                                <tr class="bg-success">
+
+                                    <th class="CurrencyAlign">Category</th>
+                                    <th class="CurrencyAlign">Sub-Category</th>
+                                    <th class="CurrencyAlign">Product</th>
+                                    <th class="CurrencyAlign">ActualPrice</th>
+                                    <th class="CurrencyAlign">Quantity</th>
+                                    <th class="CurrencyAlign">Sub-Total</th>
+                                    <th colspan="2" class="CurrencyAlign">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="CurrencyAlign">Total</th>
+                                    <th class="CurrencyAlign" id="totalQty">0</th>
+                                    <th class="CurrencyAlign" id="totalPrice">0</th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="row clearfix">
+                <div class="offset-4 col-md-3">
+                    <input type="button" class="col-md-12 btn btn-success addToServer" value="Submit" />
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
+@section Styles{
+    @Styles.Render("~/Content/chosen")
+
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+
+        .CurrencyAlign {
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+
+}
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/chosen")
+    <script type="text/javascript">
+
+
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+
+
+        function isProductExist(productId) {
+
+            debugger;
+            var isExist = false;
+            var detailsTableBody = $("#fillDetails tbody");
+            $.each($(detailsTableBody).find('tr'), function () {
+
+
+                var Product_exist = $(this).find('td:eq(2)').attr('id');
+                if (productId == Product_exist) {
+                    isExist = true;
+                    return false;
+                }
+            });
+            return isExist;
+        }
+
+
+        //button remove click
+        $(document).on('click', 'a.deleteItem', function (e) {
+            e.preventDefault();
+            var $self = $(this);
+            if ($(this).attr('data-itemId') == "0") {
+
+                $(this).parents('tr').css("background-color", "#ff9600").fadeOut(800, function () {
+                    $(this).remove();
+                    CalculateProductDetail();
+
+
+                });
+
+            }
+        });
+
+
+
+
+
+        function ModelReset() {
+            $('#ProductQuantity').val('');
+            $('#ProductId').val('').trigger('chosen:updated');
+         }
+
+        // onclick function click button to add data in table..
+        $('.addTableData').click(function () {
+
+             
+
+            if ($('#FranchiseId').val() != "") {
+                $('#FranchiseId').prop('disabled', true).trigger('chosen:updated');
+            }
+
+
+            debugger;
+            var ProductQuantity = $('#ProductQuantity').val();
+            var selectedProductId = $('#ProductId option:selected').val();
+            var selectedFranchiseId = $('#FranchiseId option:selected').val();
+            var selectedFranchiseName = $('#FranchiseId option:selected').text();
+
+
+
+
+
+            if (ProductQuantity == null || ProductQuantity == "" || ProductQuantity == undefined || ProductQuantity <= 0) {
+                toastrInfo('Kindly Enter Proper Quantity');
+                return;
+            }
+
+
+
+            if (selectedFranchiseId == null || selectedFranchiseId == "" || selectedFranchiseId == undefined) {
+                toastrInfo('kindly Select Franchise');
+                return;
+            }
+
+
+
+
+            if (selectedProductId == null || selectedProductId == "" || selectedProductId == undefined) {
+                toastrInfo('kindly Select Product');
+                return;
+            }
+
+
+
+            $.post('@Url.Action("GetQuantityByProductAvailableCount", "General")', { productId: selectedProductId },
+                    function (data) {
+
+                        if (data.status == 1) {
+
+                            if (data.Quantity >= ProductQuantity) {
+                                
+            $.post('@Url.Action("GetDetailByProduct", "General")', { productId: selectedProductId },
+                   function (data) {
+
+                       if (data.status == 1) {
+
+                           debugger;
+
+                           var productExist = isProductExist(data.productdetail.ProductId);
+                           if (productExist) {
+                               toastrInfo('Product Already Exist in Table');
+                               return;
+                           }
+                           else {
+                               var FillDetailTableBody = $("#fillDetails tbody");
+
+                               var newDetailadd = '<tr> <td class="CurrencyAlign" id="' + data.productdetail.CategoryId + '">' + data.productdetail.CategoryName + '</td> <td class="CurrencyAlign"id="' + data.productdetail.SubCategoryId + '" >' + data.productdetail.SubCategoryName + '</td>'
+                                        + '<td class="CurrencyAlign" id="' + data.productdetail.ProductId + '" >' + data.productdetail.ProductName + '</td>'
+                                        + '</td> <td class="CurrencyAlign">' + data.productdetail.ProductActualPrice + '</td>'
+                                        + '</td> <td class="CurrencyAlign">' + ProductQuantity + '</td>'
+                                        + '</td> <td class="CurrencyAlign">' + parseFloat(ProductQuantity) * parseFloat(data.productdetail.ProductActualPrice) + '</td>'
+                                        + '<td class="CurrencyAlign"><a data-itemId="0" href="#" class="deleteItem btn btn-primary">Remove</a></td></tr>'
+                               FillDetailTableBody.append(newDetailadd);
+                               CalculateProductDetail();
+                               ModelReset();
+                           }
+
+
+
+                       }
+                       else {
+                           ModelReset();
+                           toastrError(data.message);
+
+                       }
+                   });
+                            }
+                            else {
+                                ModelReset();
+                                toastrInfo("Product Out Of Stock..");
+                            }
+
+
+ 
+                    }
+                    else {
+                            ModelReset();
+                        toastrInfo(data.message);
+
+
+                    }
+                });
+
+
+
+        });
+
+        function CalculateProductDetail() {
+
+            var productQty = 0;
+            var productPrice = 0;
+
+            var fillTablebody = $("#fillDetails tbody tr");
+            $.each($(fillTablebody), function () {
+
+
+                productQty += parseFloat($(this).find('td:eq(4)').html() == "" ? 0 : $(this).find('td:eq(4)').html());
+                productPrice += parseFloat($(this).find('td:eq(5)').html() == "" ? 0 : $(this).find('td:eq(5)').html());
+
+
+
+            });
+
+            $('#totalQty').html(productQty);
+            $('#totalPrice').html(productPrice);
+
+
+
+        }
+
+        
+        $('.addToServer').click(function () {
+
+
+
+            var FillDetailTableBody = $("#fillDetails tbody tr");
+            var _transferDetail = [];
+            _transferDetail.length = 0;
+            $.each($(FillDetailTableBody), function () {
+                _transferDetail.push({
+                    CategoryId: $(this).find('td:eq(0)').attr('id'),
+                    SubCategoryId: $(this).find('td:eq(1)').attr('id'),
+                    ProductId: $(this).find('td:eq(2)').attr('id'),
+                    ProductActualPrice: $(this).find('td:eq(3)').html().trim(),
+                    ProductQuantity: $(this).find('td:eq(4)').html().trim(),
+                    SubTotalAmount: $(this).find('td:eq(5)').html().trim(),
+                    FranchiseId: $('#FranchiseId option:selected').val()
+
+
+                });
+
+            });
+
+            $.post("@Url.Action("TransferForm", "Transfer")",
+     {
+         transferDetail: _transferDetail
+
+     },
+
+     function (data) {
+         if (data.status == 1) {
+             toastrSuccess('Transfer Sucessfullyy..');
+             window.setTimeout(function () { location.reload() }, 2000)
+
+         }
+         else {
+             toastrError(data.message);
+         }
+
+     }).fail(function (jqXHR) {
+         toastrError('Some thing went Wrong.');
+     });
+
+
+
+        });
+
+
+    </script>
+
+}

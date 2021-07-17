@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "BarCode Generate";
+    Layout = null;
+}
+
+
+
+
+@for (int i = 0; i < ViewBag.qauntity; i++)
+{
+    <img src="@ViewBag.url" alt="" />
+    
+}
+
+<button onclick="myFunction()">Print this page</button>
+
+<script type="text/javascript">
+function myFunction() {
+  window.print();
+}
+</script>

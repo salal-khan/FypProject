@@ -1,0 +1,85 @@
+﻿@model FypProject.Models.EditSubCategoryVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+ 
+@using (Html.BeginForm("Edit", "SubCategory", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h4>Edit Sub-Category</h4>
+            </div>
+            <div class="card-body">
+
+                @Html.HiddenFor(m => m.SubCategoryId)
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CategoryId, new { @class = "control-label" })
+                            <br />
+                            @Html.DropDownListFor(m => m.CategoryId, Model.CategoryList as SelectList, "Select Category", new { @class = "form-control chosen-select" })
+                            @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SubCategoryName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.SubCategoryName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.SubCategoryName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <br />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-warning" value="Edit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+}
+
+
+@section Styles{
+    @Styles.Render("~/Content/chosen")
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+    </style>
+}
+
+
+
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
+    @Scripts.Render("~/bundles/chosen")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+
+    </script>
+
+}

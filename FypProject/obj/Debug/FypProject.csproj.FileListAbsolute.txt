@@ -1,0 +1,261 @@
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\csc.exe
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\System.Collections.Immutable.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\vbc.exe
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe.config
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptIventoryReport.rpt
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptSalesReport.rpt
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptIventoryReport.cs
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptSalesReport.cs
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.dll.config
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.pdb
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Antlr3.Runtime.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.SqlServer.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Web.Infrastructure.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Newtonsoft.Json.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Owin.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Helpers.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Mvc.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Optimization.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Razor.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Deployment.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Razor.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\WebGrease.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\stdole.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Helpers.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Mvc.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Optimization.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Razor.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Deployment.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Razor.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Antlr3.Runtime.pdb
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Newtonsoft.Json.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.SqlServer.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.pdb
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportSource.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.Shared.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.HtmlToPdf.dll
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.HtmlToPdf.xml
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.Html.dep
+D:\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.csprojResolveAssemblyReference.cache
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\csc.exe
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\System.Collections.Immutable.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\vbc.exe
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe.config
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptIventoryReport.rpt
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptSalesReport.rpt
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptIventoryReport.cs
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Views\Report\rptSalesReport.cs
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.dll.config
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\FypProject.pdb
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Antlr3.Runtime.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportSource.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.Shared.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.SqlServer.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Web.Infrastructure.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Newtonsoft.Json.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Owin.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.HtmlToPdf.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Helpers.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Mvc.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Optimization.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Razor.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Deployment.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Razor.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\WebGrease.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\stdole.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.HtmlToPdf.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Helpers.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Mvc.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Optimization.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.Razor.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Deployment.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\System.Web.WebPages.Razor.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Antlr3.Runtime.pdb
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Newtonsoft.Json.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\EntityFramework.SqlServer.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\bin\Select.Html.dep
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.csprojResolveAssemblyReference.cache
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.dll
+D:\Personal Project\PrivateTFS\FypProjectt\FypProject\FypProject\obj\Debug\FypProject.pdb
+D:\FypProject\FypProject\bin\roslyn\csc.exe
+D:\FypProject\FypProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\FypProject\FypProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\FypProject\FypProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\FypProject\FypProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\FypProject\FypProject\bin\roslyn\System.Collections.Immutable.dll
+D:\FypProject\FypProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\FypProject\FypProject\bin\roslyn\vbc.exe
+D:\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe
+D:\FypProject\FypProject\bin\roslyn\VBCSCompiler.exe.config
+D:\FypProject\FypProject\bin\Views\Report\rptIventoryReport.rpt
+D:\FypProject\FypProject\bin\Views\Report\rptSalesReport.rpt
+D:\FypProject\FypProject\bin\Views\Report\rptIventoryReport.cs
+D:\FypProject\FypProject\bin\Views\Report\rptSalesReport.cs
+D:\FypProject\FypProject\bin\FypProject.dll.config
+D:\FypProject\FypProject\bin\FypProject.dll
+D:\FypProject\FypProject\bin\FypProject.pdb
+D:\FypProject\FypProject\bin\Antlr3.Runtime.dll
+D:\FypProject\FypProject\bin\EntityFramework.dll
+D:\FypProject\FypProject\bin\EntityFramework.SqlServer.dll
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.dll
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.dll
+D:\FypProject\FypProject\bin\Microsoft.Web.Infrastructure.dll
+D:\FypProject\FypProject\bin\Newtonsoft.Json.dll
+D:\FypProject\FypProject\bin\Owin.dll
+D:\FypProject\FypProject\bin\Select.HtmlToPdf.dll
+D:\FypProject\FypProject\bin\System.Web.Helpers.dll
+D:\FypProject\FypProject\bin\System.Web.Mvc.dll
+D:\FypProject\FypProject\bin\System.Web.Optimization.dll
+D:\FypProject\FypProject\bin\System.Web.Razor.dll
+D:\FypProject\FypProject\bin\System.Web.WebPages.Deployment.dll
+D:\FypProject\FypProject\bin\System.Web.WebPages.dll
+D:\FypProject\FypProject\bin\System.Web.WebPages.Razor.dll
+D:\FypProject\FypProject\bin\WebGrease.dll
+D:\FypProject\FypProject\bin\stdole.dll
+D:\FypProject\FypProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\FypProject\FypProject\bin\Select.HtmlToPdf.xml
+D:\FypProject\FypProject\bin\System.Web.Helpers.xml
+D:\FypProject\FypProject\bin\System.Web.Mvc.xml
+D:\FypProject\FypProject\bin\System.Web.Optimization.xml
+D:\FypProject\FypProject\bin\System.Web.Razor.xml
+D:\FypProject\FypProject\bin\System.Web.WebPages.xml
+D:\FypProject\FypProject\bin\System.Web.WebPages.Deployment.xml
+D:\FypProject\FypProject\bin\System.Web.WebPages.Razor.xml
+D:\FypProject\FypProject\bin\Antlr3.Runtime.pdb
+D:\FypProject\FypProject\bin\Newtonsoft.Json.xml
+D:\FypProject\FypProject\bin\EntityFramework.xml
+D:\FypProject\FypProject\bin\EntityFramework.SqlServer.xml
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\FypProject\FypProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Google.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\FypProject\FypProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\FypProject\FypProject\bin\Select.Html.dep
+D:\FypProject\FypProject\obj\Debug\FypProject.dll
+D:\FypProject\FypProject\obj\Debug\FypProject.pdb
+D:\FypProject\FypProject\obj\Debug\FypProject.csprojResolveAssemblyReference.cache

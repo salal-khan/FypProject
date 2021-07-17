@@ -1,0 +1,120 @@
+﻿@model List<FypProject.Models.TransferMasterIndexVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Transfer Detail</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("TransferForm","Transfer")">Transfer</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-transfer">
+                                <thead>
+                                    <tr>
+
+                                        <th>Franchise</th>
+                                        <th>Total Product Quantity</th>
+                                        <th>Datetime</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+
+                                            <td>@item.Franchise</td>
+                                            <td>
+                                                @item.TotalProductQuantity
+                                            </td>
+                                             <td>
+                                                @item.Datetime
+                                            </td>
+
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon detail" href="javascript:void(0)" data-TransferMasterId="@item.TransferMasterId"><i cla><i class="fas fa-list"></i>Detail</a>
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit","Transfer", new { id= item.TransferMasterId })"><i cla><i class="fas fa-edit"></i>Edit</a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+@section Scripts {
+
+    <script>
+
+        $(function () {
+            var tableUsers = $('#table-transfer');
+            applyDatatableClass(tableUsers);
+        });
+
+        $('.detail').click(function () {
+            var TransferMasterId = $(this).attr("data-TransferMasterId");
+            LoadTransferFormDetail(TransferMasterId);
+
+        });
+
+        function LoadTransferFormDetail(_transferMasterId) {
+            toggleUniversalLoader();
+            var url = '@Url.Action("LoadTransferFormDetail", "Transfer", new { transferMasterId = "__transferMasterId__" })';
+            url = url.replace("__transferMasterId__", _transferMasterId);
+
+            var bodyCreate = $('#myPV');
+
+            $(bodyCreate).load(url, "",
+               function (responseText, textStatus, XMLHttpRequest) {
+               });
+        }
+
+
+    </script>
+
+}
+
+
+
+
+
+

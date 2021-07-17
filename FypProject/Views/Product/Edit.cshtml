@@ -1,0 +1,183 @@
+﻿@model FypProject.Models.EditProductVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+ 
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h4>Create Product</h4>
+            </div>
+            <div class="card-body">
+
+                @Html.HiddenFor(m => m.ProductId)
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CategoryId, new { @class = "control-label" })
+                            <br />
+                            @Html.DropDownListFor(m => m.CategoryId, Model.CategoryList as SelectList, "Select Category", new { @class = "form-control chosen-select" })
+                            @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SubCategoryId, new { @class = "control-label" })
+                            <br />
+                            @Html.DropDownListFor(m => m.SubCategoryId, Model.SubCategoryList as SelectList, "Select Category", new { @class = "form-control chosen-select" })
+                            @Html.ValidationMessageFor(m => m.SubCategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProductActualPrice, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.ProductActualPrice, new { @class = "form-control", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.ProductActualPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProductSellingPrice, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.ProductSellingPrice, new { @class = "form-control", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.ProductSellingPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @*<p style="color:red"><b>  (Auto-Genrated By System</p>*@
+                            @Html.LabelFor(m => m.Barcode, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Barcode, new { @class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Barcode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @rows = "110", @cols = "5" })
+                            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <br />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-warning" value="Edit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+}
+
+
+@section Styles{
+    @Styles.Render("~/Content/chosen")
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+    </style>
+}
+
+
+
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
+    @Scripts.Render("~/bundles/chosen")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+
+
+        $('#CategoryId').change(function () {
+
+            var value = this.value;
+
+
+
+            if (value != null && value != undefined && value != "") {
+                $.post('@Url.Action("GetSubCategoryByCategoryId", "General")', { categoryId: value }, function (data) {
+                    if (data.status == 1) {
+                        fillsubcategory(data.subcategoryList);
+                    }
+                    else {
+                        $('#SubCategoryId').empty();
+                    }
+                });
+            }
+            else {
+
+                $('#SubCategoryId').empty();
+                $('#SubCategoryId').trigger('chosen:updated');
+            }
+        });
+
+        function fillsubcategory(subcategoryList) {
+            var DropDown = $('#SubCategoryId');
+            DropDown.empty();
+
+            var option = '';
+            if (subcategoryList != null) {
+                DropDown.append("<option value='' selected='true'>Select Sub Category</option>");
+                for (var i = 0; i < subcategoryList.length; i++) {
+                    option += '<option value="' + subcategoryList[i].SubCategoryId + '">' + subcategoryList[i].SubCategoryName + '</option>';
+                }
+            }
+            DropDown.append(option);
+            DropDown.trigger('chosen:updated');
+        }
+         
+
+
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+﻿@model FypProject.Models.FranchiseVM
+@{
+    ViewBag.Title = "Index";
+}
+ 
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Franchies</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("Create","Franchise")">Add Franchie</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-users">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Franchise Name</th>
+                                        <th>ContactPerson</th>
+                                        <th>ContactNumber</th>
+                                        <th>Address</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var franchise in Model.FranchiseList)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                @franchise.FranchiseId
+                                            </td>
+                                            <td>
+                                                @franchise.FranchiseName
+                                            </td>
+                                            <td>
+                                                @franchise.ContactPerson
+                                            </td>
+                                            <td>
+                                                @franchise.ContactNumber
+                                            </td>
+                                            <td>
+                                                @franchise.Address
+                                            </td>
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit","Franchise", new { id= franchise.FranchiseId })"><i class="fas fa-edit"></i>Edit</a>
+                                                        <a class="dropdown-item has-icon deleteFranchise" data-FranchiseId="@franchise.FranchiseId" href="javascript:void(0)"><i class="fas fa-compress"></i>Delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+@section Scripts {
+
+    <script>
+
+        $(function () {
+            var tableUsers = $('#table-users');
+            applyDatatableClass(tableUsers);
+        });
+
+
+        $('.deleteFranchise').click(function () {
+
+            var FranchiseId = $(this).attr("data-FranchiseId");
+            
+            swal({
+                title: 'Are you sure?',
+                text: 'Once deleted, you will not be able to recover this record !',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            })
+    .then((willDelete) => {
+        if (willDelete) {
+
+            $.post("@Url.Action("Delete", "Franchise")/" + FranchiseId, function (data) {
+       
+                if(data.status == "1")
+                {
+                    swal('Poof! Record has been delete...!', {
+                        icon: 'success',
+                    });
+                    setTimeout(function ()
+                    { location.reload(); },500)
+                }
+                else if(data.status == "0")
+                {
+                    swal('Something went wrong to delete franchise..');
+                }
+                else {
+                    swal('This Franchise already assigned to user please delete the user first.');
+                }
+
+            });
+             
+
+        } else {
+            swal('Your user record is safe!');
+        }
+    });
+
+        });
+
+
+    </script>
+
+}
+
+
+
+
+

@@ -1,0 +1,149 @@
+﻿@model IEnumerable<FypProject.Models.IndexUserVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Users</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("Create","User")">Add User</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-users">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email Address</th>
+                                        <th>Role</th>
+                                        <th>Franchise</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var User in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                @User.UserName
+                                            </td>
+                                            <td>
+                                                @User.FirstName
+                                            </td>
+                                            <td>
+                                                @User.LastName
+                                            </td>
+                                            <td>
+                                                @User.EmailAddress
+                                            </td>
+                                            <td>@User.RoleName</td>
+                                            <td>@User.FranchiseName</td>
+
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit","User", new { id= User.Id })"><i class="fas fa-edit"></i>Edit</a>
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Detail","User", new { id= User.Id })"><i class="fas fa-list"></i>Detail</a>
+                                                        <a class="dropdown-item has-icon deleteUser" data-UserId="@User.Id" href="javascript:void(0)"><i class="fas fa-compress"></i>Delete</a>
+
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+@section Scripts {
+
+
+
+    <script>
+
+        $(function () {
+            var tableUsers = $('#table-users');
+            applyDatatableClass(tableUsers);
+        });
+
+
+        $('.deleteUser').click(function () {
+
+            var userId = $(this).attr("data-UserId");
+            
+            swal({
+                title: 'Are you sure?',
+                text: 'Once deleted, you will not be able to recover this record !',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            })
+    .then((willDelete) => {
+        if (willDelete) {
+
+            $.post("@Url.Action("Delete", "User")/"+userId,function(data){
+       
+                if(data.status > 0)
+                {
+                    swal('Poof! Record has been delete...!', {
+                        icon: 'success',
+                    });
+                    setTimeout(function ()
+                    { location.reload(); }, 500)
+                }
+                else {
+                    swal('Something went wrong to delete user..');
+                }
+
+            });
+             
+
+        } else {
+            swal('Your user record is safe!');
+        }
+    });
+
+        });
+
+
+    </script>
+
+}
+
+
+
+
+
+

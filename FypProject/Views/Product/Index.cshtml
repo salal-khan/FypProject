@@ -1,0 +1,180 @@
+﻿@model IEnumerable<FypProject.Models.IndexProductVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Products</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("Create","Product")">Add Product</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-product" style="font-size:13px">
+                                <thead>
+                                    <tr>
+
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>SubCategory</th>
+                                        <th>Actual Price</th>
+                                        <th>Selling Price</th>
+                                        <th>Description</th>
+
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                @item.ProductName
+                                            </td>
+                                            <td>
+                                                @item.CategoryName
+                                            </td>
+                                            <td>
+                                                @item.SubCategoryName
+                                            </td>
+                                            <td>
+                                                @item.ProductActualPrice
+                                            </td>
+
+                                            <td>
+                                                @item.ProductSellingPrice
+                                            </td>
+                                            <td>@item.Description</td>
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit", "Product", new { id = item.ProductId })"><i class="fas fa-edit"></i>Edit</a>
+
+                                                        @* <a class="dropdown-item has-icon deleteUser" data-UserId="@User.Id" href="javascript:void(0)"><i class="fas fa-compress"></i>Delete</a>*@
+
+
+                                                    </div>
+                                                </div>
+                                                @*<a href="javascript:void(0);" class="btn btn-icon icon-left btn-primary generateBarcode" data-ProductId="@item.ProductId"><i class="far fa-edit"></i> Genrate Barcode</a>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+@section Scripts {
+
+
+
+    <script>
+
+        $(function () {
+            var table = $('#table-product');
+            applyDatatableClass(table);
+        });
+
+
+
+
+
+
+
+        $('.generateBarcode').click(function () {
+
+            var ProductId = $(this).attr("data-ProductId");
+
+            toggleUniversalLoader();
+            var url = '@Html.Raw(Url.Action("GenrateBarCode", "Product",new { productId = "__ProductId__" }))';
+            url = url.replace("__ProductId__", ProductId);
+
+            var bodyCreate = $('#myPV');
+
+            $(bodyCreate).load(url, "",
+               function (responseText, textStatus, XMLHttpRequest) {
+               });
+        }
+
+       );
+
+
+
+        $('.deleteUser').click(function () {
+
+            var userId = $(this).attr("data-UserId");
+
+            swal({
+                title: 'Are you sure?',
+                text: 'Once deleted, you will not be able to recover this record !',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            })
+    .then((willDelete) => {
+        if (willDelete) {
+
+            $.post("@Url.Action("Delete", "User")/" + userId, function (data) {
+
+                if (data.status > 0) {
+                    swal('Poof! Record has been delete...!', {
+                        icon: 'success',
+                    });
+                    setTimeout(function ()
+                    { location.reload(); }, 500)
+                }
+                else {
+                    swal('Something went wrong to delete user..');
+                }
+
+            });
+
+
+        } else {
+            swal('Your user record is safe!');
+        }
+    });
+
+        });
+
+
+
+
+
+
+    </script>
+
+}
+
+

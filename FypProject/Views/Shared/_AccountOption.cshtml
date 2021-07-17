@@ -1,0 +1,36 @@
+﻿ 
+<div class="dropdown-menu dropdown-menu-right pullDown">
+
+    <div class="dropdown-title">
+        @if (Session["Id"] != null)
+        {
+
+           <text> Hello, @Session["UserName"].ToString() </text>
+
+        }
+        else
+        {
+
+            <text>User</text>
+        }
+    </div>
+    <a href="profile.html" class="dropdown-item has-icon">
+        <i class="far fa-user"></i> Profile
+    </a>
+
+    <div class="dropdown-divider"></div>
+
+  
+    @if (Session["Id"] != null)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i>   Logout
+        
+            </a>
+        }
+    }
+
+</div>

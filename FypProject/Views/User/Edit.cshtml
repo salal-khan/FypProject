@@ -1,0 +1,218 @@
+﻿@model FypProject.Models.EditUserVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h4>Create User</h4>
+            </div>
+            <div class="card-body">
+                @Html.HiddenFor(model => model.Id)
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                </div>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                </div>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CNIC, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.CNIC, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CNIC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Address, new { @class = "control-label" })
+                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.RoleId, new { @class = "control-label" })
+                            <br />
+                            @Html.DropDownListFor(m => m.RoleId, Model.RoleList as SelectList, "Select Role", new { @class = "form-control chosen-select" })
+                            @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div id="conditionalDiv">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FranchiseId, new { @class = "control-label" })
+                                <br />
+                                @Html.DropDownListFor(m => m.FranchiseId, Model.FranchiseList as SelectList, "Select Franchise", new { @class = "form-control chosen-select" })
+                                @Html.ValidationMessageFor(m => m.FranchiseId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <br />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-warning" value="Edit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+}
+
+
+@section Styles{
+    @Styles.Render("~/Content/chosen")
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+    </style>
+}
+
+
+
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
+    @Scripts.Render("~/bundles/chosen")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+
+
+        $('#conditionalDiv').hide();
+
+        $(function () {
+
+            var role = $("#RoleId option:selected").text();
+            if (role == '@constant.Roles.User') {
+                $('#conditionalDiv').show();
+            }
+            else {
+                $('#conditionalDiv').hide();
+            }
+        });
+
+
+        $('#RoleId').change(function () {
+
+            var role = $("#RoleId option:selected").text();
+            if (role == '@constant.Roles.User') {
+                $('#conditionalDiv').show();
+            }
+            else {
+                $('#conditionalDiv').hide();
+            }
+
+        });
+
+
+    </script>
+
+}
+
+
+
+
+
+

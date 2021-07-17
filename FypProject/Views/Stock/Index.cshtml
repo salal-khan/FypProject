@@ -1,0 +1,119 @@
+﻿@model IEnumerable<FypProject.Models.StockMasterIndexVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>All Stock Detail</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("AddStock","Stock")">Add Stock</a>
+                        <br />
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-stock">
+                                <thead>
+                                    <tr>
+
+                                        <th>Total Product Quantity</th>
+                                        <th>Total Product Amount</th>
+                                        <th>Datetime</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+
+                                            <td>
+                                                @item.ProductTotalQuantity
+                                            </td>
+                                            <td>
+                                                @item.ProductTotalAmount
+                                            </td>
+                                            <td>
+                                                @item.Datetime
+                                            </td>
+
+
+                                            <td>
+
+                                                <div class="dropdown d-inline">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Details
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon detail" href="javascript:void(0)" data-stockMasterId="@item.StockMasterId"><i cla><i class="fas fa-list"></i>Detail</a>
+                                                        <a class="dropdown-item has-icon" href="@Url.Action("Edit","Stock", new { id= item.StockMasterId })"><i cla><i class="fas fa-edit"></i>Edit</a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+@section Scripts {
+
+    <script>
+
+        $(function () {
+            var tableUsers = $('#table-stock');
+            applyDatatableClass(tableUsers);
+        });
+
+        $('.detail').click(function () {
+            var stockMasterId = $(this).attr("data-stockMasterId");
+            LoadStockDetail(stockMasterId);
+
+        });
+
+        function LoadStockDetail(_stockMasterId) {
+            toggleUniversalLoader();
+            var url = '@Url.Action("LoadDetail", "Stock", new { stockMasterId = "__stockMasterId__" })';
+            url = url.replace("__stockMasterId__",_stockMasterId);
+
+            var bodyCreate = $('#myPV');
+
+            $(bodyCreate).load(url, "",
+               function (responseText, textStatus, XMLHttpRequest) {
+               });
+        }
+
+
+    </script>
+
+}
+
+
+
+

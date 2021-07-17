@@ -1,0 +1,461 @@
+﻿@model FypProject.Models.EditSalesVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Point Of Sale (Edit)</h4>
+        </div>
+        <div class="card-body">
+
+
+            <div class="row">
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductBarcode, new { @class = "control-label" })
+                        <br />
+                        @Html.DropDownListFor(m => m.ProductBarcode, Model.ProductList as SelectList, "Select Product", new { @class = "form-control chosen-select" })
+                        @Html.ValidationMessageFor(m => m.ProductBarcode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.Label("BarCode", new { @class = "control-label" })
+                            <input type="text" style="width:340px" class="form-control" id="productCode" />
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <br />
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                    <div>
+                        <table id="fillDetails" class="table table-striped table-bordered" style="font-size:12px;">
+                            <thead>
+                                <tr class="bg-success">
+                                    <th class="CurrencyAlign"> ProductId</th>
+                                    <th class="CurrencyAlign">Product Name</th>
+                                    <th class="CurrencyAlign">Product Cost</th>
+                                    <th class="CurrencyAlign">Product Quantity</th>
+                                    <th class="CurrencyAlign">Sub Total</th>
+                                    <th colspan="2" class="CurrencyAlign">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <th class="CurrencyAlign">Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="CurrencyAlign" id="totalQty">0</th>
+                                    <th class="CurrencyAlign" id="grandTotal">0</th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @*<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">*@
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    @Html.Label("Total Amount")
+                    <input id="TotalAmount" class="form-control" readonly type="number" />
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Cash Received")
+                    <input id="CashReceived" class="form-control" type="number" />
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Remain Amount")
+                    <input id="RemainingAmount" class="form-control" readonly type="number" />
+                </div>
+                <div class="col-md-3">
+                    <br />
+                    <button type="submit" class="pull-right col-md-8 btn btn-success addToServer">
+                        <i class="material-icons">done_all</i>
+                        <span>Submit</span>
+                    </button>
+                </div>
+                @*</div>*@
+            </div>
+
+
+
+
+
+        </div>
+        <br />
+
+
+
+
+    </div>
+
+</section>
+
+
+
+
+<@section Styles{ @Styles.Render("~/Content/chosen")
+
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+
+
+        .CurrencyAlign {
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/chosen")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+
+        debugger;
+
+            var FillDetailTableBody = $("#fillDetails tbody");
+            var model = '@Html.Raw(Json.Encode(Model.salesDetailList))';
+            var data = JSON.parse(model);
+            for (var i = 0; i < data.length; i++) {
+                var newDetailadd = '<tr> <td class="hidden" id="' + data[i].ProductId + '">' + data[i].ProductId + '</td> <td class="CurrencyAlign">' + data[i].ProductName + '</td><td class="CurrencyAlign" id="productCostPri">' + data[i].SellingPrice + '</td>'
+                                + '<td class="CurrencyAlign"><input onkeypress="validate(event)" class="form-control" value="'+data[i].Quantity+'" id="productQty" type="number"/></td>'
+                                + '<td class="CurrencyAlign" id="subtotal">' + data[i].SellingSubTotal + '</td><td class="CurrencyAlign"><a data-itemId="0" href="#" class="deleteItem btn btn-warning">Remove</a></td></tr>'
+                FillDetailTableBody.append(newDetailadd);
+
+            }
+            CalculateProductDetail();
+            $('#grandTotal').html('@Model.TotalAmount')
+            $('#totalQty').html('@Model.NoQuantity')
+            $('#TotalAmount').val('@Model.TotalAmount')
+            $('#CashReceived').val('@Model.RecivedAmount');
+            $('#RemainingAmount').val('@Model.RecivedAmount' - '@Model.TotalAmount');
+
+
+
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+        $('#ProductBarcode').change(function () {
+            var value = this.value;
+
+
+            debugger;
+            if (value != null && value != undefined && value != "") {
+
+                $('#productCode').val(value);
+
+            }
+            else {
+                $('#productCode').val('');
+            }
+
+        });
+
+        $(document).on('input', '#productQty', function () {
+            var row = $(this).closest('tr');
+            var productQuantity = row.find('#productQty').val() == "" ? 1 : row.find('#productQty').val();
+            var productCostPrice = row.find('#productCostPri').html() == "" ? 1 : row.find('#productCostPri').html();
+
+
+
+            var subtotal = productCostPrice * productQuantity;
+            row.find('#subtotal').html(subtotal);
+            CalculateProductDetail();
+
+
+        });
+
+
+
+
+
+
+
+        $('#CashReceived').on("keypress keyup blur", function (event) {
+
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if (($(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+                return;
+            }
+
+
+            var currentCashReceived = this.value;
+            var globalTotalAmount = $('#TotalAmount').val();
+            RemainingAmountLeft(currentCashReceived, globalTotalAmount);
+
+
+        });
+
+
+
+        function RemainingAmountLeft(currentCashReceived, globalTotalAmount) {
+            var remainingAmount = parseFloat(parseFloat(currentCashReceived - parseFloat(parseFloat(globalTotalAmount).toFixed(2))).toFixed(2))
+            $('#RemainingAmount').val(remainingAmount);
+        }
+
+        function CalculateProductDetail() {
+            var grandtotal = 0;
+            var productQty = 0;
+
+            var fillTablebody = $("#fillDetails tbody tr");
+            $.each($(fillTablebody), function () {
+
+
+                grandtotal += parseFloat($(this).find('td:eq(4)').html())
+                productQty += parseFloat($(this).find('td:eq(3)').find("#productQty").val() == "" ? 0 : $(this).find('td:eq(3)').find("#productQty").val())
+
+
+            });
+            $('#grandTotal').html(grandtotal)
+            $('#totalQty').html(productQty)
+            $('#TotalAmount').val(grandtotal)
+
+        }
+
+
+
+
+
+        function validate(evt) {
+            var theEvent = evt || window.event;
+
+            // Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+
+        // in table product exist function..
+        function isProductExist(ProductId) {
+
+            var isExist = false;
+            var detailsTableBody = $("#fillDetails tbody");
+            $.each($(detailsTableBody).find('tr'), function () {
+                debugger;
+
+                var Product_exist = $(this).find('td:eq(0)').attr('id');
+
+
+                if (ProductId == Product_exist) {
+                    var qtycount = parseFloat($(this).find('#productQty').val()) + 1;
+                    $(this).find('#productQty').val(qtycount);
+                    var productCostPrice = $(this).find('#productCostPri').html() == "" ? 1 : $(this).find('#productCostPri').html();
+                    var subtotal = productCostPrice * qtycount;
+                    $(this).find('#subtotal').html(subtotal);
+
+
+                    isExist = true;
+                    return false;
+                }
+                else {
+                    isExist = false;
+
+                }
+
+
+            });
+            return isExist;
+        }
+
+
+        //button remove click
+        $(document).on('click', 'a.deleteItem', function (e) {
+            e.preventDefault();
+            var $self = $(this);
+            if ($(this).attr('data-itemId') == "0") {
+
+                $(this).parents('tr').css("background-color", "#ff9600").fadeOut(800, function () {
+                    $(this).remove();
+                    CalculateProductDetail();
+                    $('#CashReceived').val('');
+                    $('#RemainingAmount').val('');
+
+                });
+
+            }
+
+        });
+
+
+
+
+        //------------------Barcode Read And Table Fill-----------------------------//
+ $('#productCode').bind("enterKey", function (e) {
+
+            var barcode = this.value;
+
+            if (this.value != 0 && this.value != undefined) {
+                $.post('@Url.Action("GetDetailByBarcode", "General")', { barcode: this.value },
+                    function (data) {
+
+                        if (data.status == 1) {
+
+                            var productId = data.productdetail.ProductId;
+                            var productName = data.productdetail.ProductName;;
+                            var productSalePrice = data.productdetail.ProductSellingPrice;
+                            var productExist = isProductExist(productId);
+
+
+                            if (!productExist)  {
+                                var FillDetailTableBody = $("#fillDetails tbody");
+
+                                var newDetailadd = '<tr> <td class="hidden" id="' + productId + '">' + productId + '</td> <td class="CurrencyAlign">' + productName + '</td><td class="CurrencyAlign" id="productCostPri">' + productSalePrice + '</td>'
+                                    + '<td class="CurrencyAlign"><input onkeypress="validate(event)" class="form-control" id="productQty" value="1" min="0"  type="number"/></td>'
+                                    + '<td class="CurrencyAlign" id="subtotal">' + productSalePrice+'</td><td class="CurrencyAlign"><a data-itemId="0" href="#" class="deleteItem btn btn-warning">Remove</a></td></tr>'
+                                FillDetailTableBody.append(newDetailadd);
+                                $('#productCode').val('');
+                                $('#productCode').focus();
+                                $('#ProductBarcode').val('').trigger('chosen:updated');
+                                CalculateProductDetail();
+
+
+
+                            }
+                            else {
+                                $('#productCode').val('');
+                                $('#productCode').focus();
+                                $('#ProductBarcode').val('').trigger('chosen:updated');
+                                CalculateProductDetail();
+
+                            }
+
+
+                        }
+                        else {
+                            this.value = '';
+                            toastrInfo("BarCode is  Invalid");
+
+
+                        }
+                    });
+            }
+            else {
+                this.value = '';
+                toastrInfo("BarCode is  Invalid");
+
+            }
+
+
+
+
+        });
+        $('#productCode').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $(this).trigger("enterKey");
+            }
+        });
+
+
+
+
+
+        //---------Add to Server Data---------------///////////
+
+        $('.addToServer').click(function () {
+
+            var FillDetailTableBody = $("#fillDetails tbody tr");
+            var salesDetail = [];
+            salesDetail.length = 0;
+
+            $.each($(FillDetailTableBody), function () {
+
+                salesDetail.push({
+
+                    ProductId: $(this).find('td:eq(0)').html().trim(),
+                    SellingPrice: $(this).find('td:eq(2)').html().trim(),
+                    Quantity: $(this).find("td:eq(3) input[type='number']").val(),
+                    SellingSubTotal: $(this).find('td:eq(4)').html().trim(),
+
+                });
+
+            });
+
+
+            var totQty = $('#totalQty').html();
+            var grandTot = $('#grandTotal').html();
+            var cashReceive = $('#CashReceived').val();
+
+
+
+
+
+
+
+            $.post("@Url.Action("Edit", "Sales")",
+   {
+       salesDetails: salesDetail,
+       totalQty: totQty,
+       grandTotal: grandTot,
+       cashRec: cashReceive,
+       SalesMasterId: '@Model.SalesMasterId'
+   },
+
+   function (data) {
+       if (data.status == 1) {
+           toastrSuccess(data.message)
+           setTimeout(function () { window.location.reload() }, 1000);
+
+       }
+       else {
+           toastrError(data.message);
+
+       }
+
+   }).fail(function (jqXHR) {
+       toastrError("Something went wrong...");
+   });
+
+
+        })
+
+
+
+    </script>
+}

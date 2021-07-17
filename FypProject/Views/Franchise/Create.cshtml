@@ -1,0 +1,106 @@
+﻿@model FypProject.Models.FranchiseList
+@{
+    ViewBag.Title = "Create";
+}
+
+ 
+
+@using (Html.BeginForm("Create", "Franchise", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+                <h4>Franchise Create</h4>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FranchiseName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.FranchiseName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FranchiseName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Address, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ContactPerson, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ContactPerson, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ContactNumber, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-warning" value="Create" />
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+}
+
+
+
+@*@section Styles{
+    @Styles.Render("~/Content/chosen")
+    <style type="text/css">
+        .chosen-container.chosen-container-single {
+            width: 350px !important;
+        }
+    </style>
+}*@
+
+
+
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
+    @Scripts.Render("~/bundles/chosen")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
+        $(".chosen-select").chosen();
+
+
+    </script>
+
+}
